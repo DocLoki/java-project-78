@@ -5,32 +5,19 @@ import java.util.Map;
 
 public class MapSchema extends BaseSchema<Map<?, ?>> {
 
-    private Integer size;
-    private Map<String, BaseSchema<String>> schemas;
-
     @Override
     public MapSchema required() {
-        super.required();
+        required = true;
         return this;
     }
 
     public MapSchema sizeof(int size) {
-        this.size = size;
+        addCheck("sizeof", value -> value.size() == size);
         return this;
     }
 
     public MapSchema shape(Map<String, BaseSchema<String>> schemas) {
-        this.schemas = schemas;
-        return this;
-    }
-
-    @Override
-    protected boolean isValidValue(Map<?, ?> value) {
-        if (size != null && value.size() != size) {
-            return false;
-        }
-
-        if (schemas != null) {
+        addCheck("shape", value -> {
             for (var entry : schemas.entrySet()) {
                 Object fieldValue = value.get(entry.getKey());
 
@@ -42,8 +29,10 @@ public class MapSchema extends BaseSchema<Map<?, ?>> {
                     return false;
                 }
             }
-        }
 
-        return true;
+            return true;
+        });
+
+        return this;
     }
 }
