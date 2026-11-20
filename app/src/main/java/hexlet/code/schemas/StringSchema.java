@@ -1,14 +1,14 @@
 
 package hexlet.code.schemas;
 
-public class StringSchema {
+public class StringSchema extends BaseSchema<String> {
 
-    private boolean required;
     private Integer minLength;
     private String contains;
 
+    @Override
     public StringSchema required() {
-        required = true;
+        super.required();
         return this;
     }
 
@@ -22,9 +22,10 @@ public class StringSchema {
         return this;
     }
 
-    public boolean isValid(String value) {
-        if (value == null || value.isEmpty()) {
-            return !required;
+    @Override
+    protected boolean isValidValue(String value) {
+        if (value.isEmpty()) {
+            return !isRequired();
         }
 
         if (minLength != null && value.length() < minLength) {
