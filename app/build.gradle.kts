@@ -1,5 +1,7 @@
 plugins {
     id("java")
+    id("com.diffplug.spotless") version "7.0.2"
+    jacoco
 }
 
 group = "hexlet.code"
@@ -17,4 +19,42 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+        target("src/**/*.java")
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.14"
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+tasks.jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = "0.70".toBigDecimal()
+            }
+        }
+    }
+}
+
+tasks.check {
+    dependsOn(tasks.jacocoTestCoverageVerification)
 }

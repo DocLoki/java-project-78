@@ -1,6 +1,7 @@
 # Валидатор данных (Java)
 
 [![hexlet-check](https://github.com/DocLoki/java-project-78/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/DocLoki/java-project-78/actions)
+[![CI](https://github.com/DocLoki/java-project-78/actions/workflows/ci.yml/badge.svg)](https://github.com/DocLoki/java-project-78/actions/workflows/ci.yml)
 
 Создание собственной библиотеки для проверки корректности (валидации) данных – отличный способ прокачать навыки проектирования кода, в особенности, объектно-ориентированной архитектуры. Создание правильных иерархий классов, расширяемая архитектура, применение принципов SOLID, использование fluent-интерфейса – все это предстоит делать в проекте
 
@@ -19,16 +20,21 @@
 
 ```bash
 git clone https://github.com/DocLoki/java-project-78.git
-cd java-project-78
-
-Перейдите в каталог приложения и запустите сборку:
-cd app
-./gradlew build
-
-Gradle автоматически загрузит необходимые зависимости.
+cd java-project-78 
 ```
 
+Перейдите в каталог приложения и запустите сборку:
+```
+cd app
+./gradlew build
+```
+Gradle автоматически загрузит необходимые зависимости.
+
+
 ## Использование
+Валидатор позволяет создавать схемы проверки для разных типов данных, задавать ограничения и проверять значения.
+
+Пример запуска:
 
 ![Пример запуска валидатора](app/src/main/resources/1.jpg)
 ---
