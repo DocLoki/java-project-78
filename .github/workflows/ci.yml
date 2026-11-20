@@ -26,4 +26,4 @@ jobs:
 
       - name: Run checks
         working-directory: app
-        run: ./gradlew check spotlessCheckk
+        run: ./gradlew check spotlessCheck

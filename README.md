@@ -1,7 +1,9 @@
 # Валидатор данных (Java)
 
 [![hexlet-check](https://github.com/DocLoki/java-project-78/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/DocLoki/java-project-78/actions)
-[![CI](https://github.com/DocLoki/java-project-78/actions/workflows/ci.yml/badge.svg)](https://github.com/DocLoki/java-project-78/actions/workflows/ci.yml)
+
+[![CI](https://img.shields.io/github/actions/workflow/status/DocLoki/java-project-78/ci.yml?branch=main&label=CI)](https://github.com/DocLoki/java-project-78/actions/workflows/ci.yml)
+
 
 Создание собственной библиотеки для проверки корректности (валидации) данных – отличный способ прокачать навыки проектирования кода, в особенности, объектно-ориентированной архитектуры. Создание правильных иерархий классов, расширяемая архитектура, применение принципов SOLID, использование fluent-интерфейса – все это предстоит делать в проекте
 
